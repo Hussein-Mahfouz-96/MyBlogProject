@@ -79,6 +79,11 @@ namespace MyBlog.Controllers
             }
 
             var post = await _context.Posts.FindAsync(id);
+            if (post.UserName!=User.Identity.Name)
+            {
+                return NotFound();
+
+            }
             if (post == null)
             {
                 return NotFound();
@@ -94,6 +99,11 @@ namespace MyBlog.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("PostId,UserName,Title,Content,TimeStamp")] Post post)
         {
+            if (post.UserName!=User.Identity.Name)
+            {
+                return NotFound();
+
+            }
             if (id != post.PostId)
             {
                 return NotFound();
@@ -133,6 +143,11 @@ namespace MyBlog.Controllers
 
             var post = await _context.Posts
                 .FirstOrDefaultAsync(m => m.PostId == id);
+            if (post.UserName!=User.Identity.Name)
+            {
+                return NotFound();
+
+            }
             if (post == null)
             {
                 return NotFound();
