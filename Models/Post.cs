@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 
-namespace  FinalProject.Models{
+namespace  MyBlog.Models{
 public class Post 
 {
      public int PostId { get; set; }
