@@ -23,7 +23,7 @@ namespace MyBlog.Controllers
         // GET: Posts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Posts.ToListAsync());
+            return View(await _context.Posts.OrderByDescending(item => item.TimeStamp).ToListAsync());
         }
 
         // GET: Posts/Details/5
