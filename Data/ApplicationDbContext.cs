@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MyBlog.Models;
 
 namespace MyBlog.Data
 {
@@ -12,5 +13,7 @@ namespace MyBlog.Data
             : base(options)
         {
         }
+        public DbSet<Post> Posts { get; set; }
+
     }
 }
