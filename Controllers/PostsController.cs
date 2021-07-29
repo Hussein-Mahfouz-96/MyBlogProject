@@ -62,6 +62,8 @@ namespace MyBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                post.TimeStamp = DateTime.Now;
+                post.UserName=User.Identity.Name;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
